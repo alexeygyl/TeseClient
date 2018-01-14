@@ -20,6 +20,7 @@ import android.graphics.Typeface;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -27,6 +28,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -183,6 +185,9 @@ public class SlidingTabLayout extends HorizontalScrollView {
         return textView;
     }
 
+
+
+
     private void populateTabStrip() {
         final PagerAdapter adapter = mViewPager.getAdapter();
         final View.OnClickListener tabClickListener = new TabClickListener();
@@ -192,9 +197,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             TextView tabTitleView = null;
 
             if (mTabViewLayoutId != 0) {
-                // If there is a custom tab view layout id set, try and inflate it
-                tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip,
-                        false);
+                tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip, false);
                 tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);
             }
 
@@ -202,7 +205,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 tabView = createDefaultTabView(getContext());
             }
 
-            if (tabTitleView == null && TextView.class.isInstance(tabView)) {
+            if (tabTitleView == null && View.class.isInstance(tabView)) {
                 tabTitleView = (TextView) tabView;
             }
 
@@ -211,9 +214,9 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 lp.width = 0;
                 lp.weight = 1;
             }
-
             tabTitleView.setText(adapter.getPageTitle(i));
             tabView.setOnClickListener(tabClickListener);
+
             String desc = mContentDescriptions.get(i, null);
             if (desc != null) {
                 tabView.setContentDescription(desc);

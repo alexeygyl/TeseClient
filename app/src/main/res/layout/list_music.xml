@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:padding="0dp"
+    android:weightSum="1">
+
+    <ProgressBar
+        android:id="@+id/music_list_pg"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:progressDrawable="@drawable/pg_musiclist"
+        android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/musicListPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="20px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_play_circle_outline_white_24dp"
+            >
+        </ImageView>
+
+
+        <TextView
+            android:id="@+id/MusicName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="110px"
+            android:layout_marginTop="11px"
+            android:singleLine="true"
+            android:textSize="23px" >
+        </TextView>
+    <TextView
+        android:id="@+id/MusicAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/MusicName"
+        android:layout_marginLeft="110px"
+        android:textSize="16px"
+        android:text="test">
+    </TextView>
+    <TextView
+        android:id="@+id/MusicTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="14px"
+        android:textSize="20px"
+        >
+    </TextView>
+
+
+
+</RelativeLayout>
